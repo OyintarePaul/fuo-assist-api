@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-const dbURL = "mongodb://localhost:27017/fuo-assist-db";
-
+const dbURL = process.env.MONGO_DB_URL!;
 console.log(dbURL);
 
 export async function connectDB() {

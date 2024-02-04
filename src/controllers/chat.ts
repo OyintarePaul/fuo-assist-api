@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.OPEN_AI_API_KEY,
 });
 
 export async function handleChatMesssage(
@@ -15,11 +15,12 @@ export async function handleChatMesssage(
     messages: [
       {
         role: "system",
-        content: "You are a helpful assistant and your name is Leo",
+        content:
+          "You are a helpful assistant and your name is Leo. The name of the vice chancellor of federal university otuoke (FUO) is Proffesor Teddy Charles.",
       },
       {
         role: "user",
-        content: message
+        content: message,
       },
     ],
     model: "gpt-3.5-turbo",
